@@ -6,4 +6,55 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: #f4f3ea;
+}
+
+.container {
+  background-color: aquamarine;
+  width: 85vw;
+  margin: 5rem auto;
+  text-align: center;
+}
+
+.center-slider {
+  margin: 0 auto;
+  background: chocolate;
+  display: flex;
+  flex-flow: row nowrap;
+  position: relative;
+  width: 60%;
+  height: 500px;
+  overflow: hidden;
+}
+
+article {
+  transition: all 600ms;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50vw;
+  height: 450px;
+  opacity: 0;
+}
+
+article.nextSlide {
+  transform: translateX(100%);
+  background: darkgoldenrod;
+}
+
+article.lastSlide {
+  transform: translateX(-100%);
+}
+
+article.activeSlide {
+  transform: translateX(0);
+  background: cornflowerblue;
+  opacity: 1;
+}
+
+.person-img {
+  width: 30%;
+}
+
 /*# sourceMappingURL=index.css.map */

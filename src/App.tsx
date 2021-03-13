@@ -4,8 +4,8 @@ import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { FaQuoteLeft } from "react-icons/fa";
 
 const App = () => {
-  const [people, setPeople] = useState(data);
-  const [index, setIndex] = useState(1);
+  const [people] = useState(data);
+  const [index, setIndex] = useState(0);
 
   useEffect(() => {
     const maxIndex: number = people.length - 1;
@@ -58,15 +58,14 @@ const App = () => {
             );
           }
         )}
-        <button className="prev" onClick={() => setIndex(index - 1)}>
-          <FiChevronLeft className="btn" />
-        </button>
-        <button className="next" onClick={() => setIndex(index + 1)}>
-          <FiChevronRight className="btn" />
-        </button>
       </div>
+      <button className="prev" onClick={() => setIndex(index - 1)}>
+        <FiChevronLeft className="btn" />
+      </button>
+      <button className="next" onClick={() => setIndex(index + 1)}>
+        <FiChevronRight className="btn" />
+      </button>
     </section>
   );
 };
-
 export default App;
