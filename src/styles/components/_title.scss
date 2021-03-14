@@ -1,0 +1,13 @@
+/*
+=======
+ Title
+=======
+*/
+
+.title {
+  font-size: 3vw;
+  font-family: $title-font-family;
+  span {
+    color: $title-span-color;
+  }
+}

@@ -1,62 +1,9 @@
-*,
-::after,
-::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/*
-===========================
-Main Styles and Variables
-===========================
-*/
-body {
-  font-family: "Montserrat", sans-serif;
-  background-color: #f4f3ea;
-  color: #223457;
-}
-
-.container {
-  min-width: 30%;
-  width: 85vw;
-  margin: 5rem auto;
-  text-align: center;
-}
-
-.center-slider {
-  margin: 0 auto;
-  display: flex;
-  flex-flow: row nowrap;
-  position: relative;
-  width: 65vw;
-  height: 30rem;
-  overflow: hidden;
-}
-
-@media only screen and (max-width: 400px) {
-  .center-slider {
-    height: 33rem;
-  }
-}
-/*
-=======
- Title
-=======
-*/
-.title {
-  font-size: 3vw;
-  font-family: "Cutive Mono", monospace;
-}
-.title span {
-  color: #f0711c;
-}
-
 /*
 ======
 Card
 ======
 */
+
 article {
   transition: opacity 0.8s ease-in, transform 0.7s ease-in-out;
   margin: 0.1rem;
@@ -70,22 +17,20 @@ article {
   width: 65vw;
   height: 100%;
   opacity: 0;
-}
-article h4 {
-  text-transform: uppercase;
-  letter-spacing: 0.09rem;
-  color: #2f2e74;
-  font-size: 1.3rem;
+  h4 {
+    text-transform: uppercase;
+    letter-spacing: 0.09rem;
+    color: $title-name-color;
+    font-size: 1.3rem;
+  }
 }
 
 article.nextSlide {
   transform: translateX(100%);
 }
-
 article.lastSlide {
   transform: translateX(-100%);
 }
-
 article.activeSlide {
   transform: translateX(0);
   opacity: 1;
@@ -98,7 +43,7 @@ article.activeSlide {
   min-width: 4rem;
   min-height: 4rem;
   border-radius: 50%;
-  border: 1px #f0711c solid;
+  border: 1px $title-span-color solid;
   -webkit-box-shadow: 0px 0px 17px 2px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 0px 17px 2px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 17px 2px rgba(0, 0, 0, 0.75);
@@ -107,14 +52,14 @@ article.activeSlide {
 .job-title {
   text-transform: uppercase;
   background-color: #bccbeb;
-  color: #7f7eec;
+  color: rgb(127, 126, 236);
   font-weight: 800;
   padding: 0.2rem;
 }
 
 .icon {
   font-size: 3rem;
-  color: #f0711c;
+  color: $title-span-color;
 }
 
 .prev,
@@ -125,12 +70,13 @@ article.activeSlide {
   position: absolute;
   display: grid;
   place-items: center;
+
   outline: none;
   border: none;
   text-decoration: none;
   border-radius: 0.3rem;
   font-size: 2rem;
-  background-color: #7472a1;
+  background-color: rgb(116, 114, 161);
   width: 2rem;
   height: 2rem;
   color: #e0e3e9;
@@ -146,7 +92,7 @@ article.activeSlide {
 
 .prev:hover,
 .next:hover {
-  background-color: #f0711c;
+  background-color: $title-span-color;
 }
 
 @media only screen and (max-width: 500px) {
@@ -154,20 +100,13 @@ article.activeSlide {
     font-size: 5vw;
   }
 
-  article h4 {
-    font-size: 0.8rem;
+  article {
+    h4 {
+      font-size: 0.8rem;
+    }
   }
 
   .icon {
     font-size: 1.5rem;
   }
 }
-/*
-** Was inspired by John Smilga. 
-** Thank you a lot for your transperent and efficial approach 
-** for wrapping in and getting all done!
-**
-** All styles were made by Victor Nikliaiev (Arhis Alight) 2021
-*/
-
-/*# sourceMappingURL=index.css.map */

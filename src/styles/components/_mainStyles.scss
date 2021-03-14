@@ -1,0 +1,40 @@
+/*
+===========================
+Main Styles and Variables
+===========================
+*/
+
+$main-font-family: "Montserrat", sans-serif;
+$title-font-family: "Cutive Mono", monospace;
+$title-span-color: #f0711c;
+$main-color: #223457;
+$title-name-color: rgb(47, 46, 116);
+
+body {
+  font-family: $main-font-family;
+  background-color: #f4f3ea;
+  color: $main-color;
+}
+
+.container {
+  min-width: 30%;
+  width: 85vw;
+  margin: 5rem auto;
+  text-align: center;
+}
+
+.center-slider {
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row nowrap;
+  position: relative;
+  width: 65vw;
+  height: 30rem;
+  overflow: hidden;
+}
+
+@media only screen and (max-width: 400px) {
+  .center-slider {
+    height: 33rem;
+  }
+}

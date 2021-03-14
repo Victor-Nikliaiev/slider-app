@@ -1,12 +1,6 @@
-interface Person {
-  id: number;
-  image: string;
-  name: string;
-  title: string;
-  quote: string;
-}
+import { PersonInterface } from "./components/interfaces";
 
-const people: Person[] = [
+const people: PersonInterface[] = [
   {
     id: 1,
     image:

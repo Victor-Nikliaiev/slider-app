@@ -1,13 +1,27 @@
 import data from "./data";
 import { useState, useEffect } from "react";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
-import { FaQuoteRight } from "react-icons/fa";
+import Card from "./components/Card";
 
 const App = () => {
   const [people] = useState(data);
   const [index, setIndex] = useState(0);
 
-  useEffect(() => {
+  const setPosition = (personIndex: number): string => {
+    let position: string = "nextSlide";
+    if (personIndex === index) {
+      position = "activeSlide";
+    }
+    if (
+      personIndex === index - 1 ||
+      (index === 0 && personIndex === people.length - 1)
+    ) {
+      position = "lastSlide";
+    }
+    return position;
+  };
+
+  const checkAndSetIndex = (): void => {
     const maxIndex: number = people.length - 1;
     if (index < 0) {
       setIndex(maxIndex);
@@ -15,12 +29,15 @@ const App = () => {
     if (index > maxIndex) {
       setIndex(0);
     }
-  }, [people, index]);
+  };
+
+  useEffect(checkAndSetIndex, [people, index]);
 
   useEffect(() => {
+    const moveSlideInterval: number = 5;
     const slider = setInterval(() => {
       setIndex(index + 1);
-    }, 5000);
+    }, moveSlideInterval * 1000);
     return () => {
       clearInterval(slider);
     };
@@ -34,38 +51,19 @@ const App = () => {
         </h2>
       </div>
       <div className="center-slider">
-        {people.map(
-          ({ id, image, name, quote, title }, personIndex: number) => {
-            //some extra stuff to do here
-            let position: string = "nextSlide";
-            if (personIndex === index) {
-              position = "activeSlide";
-            }
-            if (
-              personIndex === index - 1 ||
-              (index === 0 && personIndex === people.length - 1)
-            ) {
-              position = "lastSlide";
-            }
-            return (
-              <article key={id} className={position}>
-                <img className="person-img" src={image} alt={name} />
-                <h4>{name}</h4>
-                <p className="job-title">{title}</p>
-                <p className="text">{quote}</p>
-                <FaQuoteRight className="icon" />
-              </article>
-            );
-          }
-        )}
+        {people.map((person, personIndex: number) => {
+          const position: string = setPosition(personIndex);
+          return <Card key={person.id} {...person} position={position} />;
+        })}
       </div>
       <button className="prev" onClick={() => setIndex(index - 1)}>
-        <FiChevronLeft className="btn" />
+        <FiChevronLeft />
       </button>
       <button className="next" onClick={() => setIndex(index + 1)}>
-        <FiChevronRight className="btn" />
+        <FiChevronRight />
       </button>
     </section>
   );
 };
+
 export default App;
