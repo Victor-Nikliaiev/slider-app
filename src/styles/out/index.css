@@ -7,40 +7,59 @@
 }
 
 body {
+  font-family: "Montserrat", sans-serif;
   background-color: #f4f3ea;
+  color: #223457;
 }
 
 .container {
-  background-color: aquamarine;
+  min-width: 30%;
   width: 85vw;
   margin: 5rem auto;
   text-align: center;
 }
 
 .center-slider {
-  margin: 0 auto;
-  background: chocolate;
+  margin: 3.5rem auto;
   display: flex;
   flex-flow: row nowrap;
   position: relative;
-  width: 60%;
-  height: 500px;
+  width: 65vw;
+  height: 30rem;
   overflow: hidden;
 }
 
+.title {
+  font-size: 3vw;
+  font-family: "Cutive Mono", monospace;
+}
+.title span {
+  color: #f0711c;
+}
+
 article {
-  transition: all 600ms;
+  transition: opacity 1.5s, transform 0.6s;
+  margin: 0.1rem;
+  padding: 1rem;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items: center;
   position: absolute;
   left: 0;
-  top: 0;
-  width: 50vw;
-  height: 450px;
+  width: 65vw;
+  height: 100%;
   opacity: 0;
+}
+article h4 {
+  text-transform: uppercase;
+  letter-spacing: 0.09rem;
+  color: #2f2e74;
+  font-size: 1.3rem;
 }
 
 article.nextSlide {
   transform: translateX(100%);
-  background: darkgoldenrod;
 }
 
 article.lastSlide {
@@ -49,12 +68,74 @@ article.lastSlide {
 
 article.activeSlide {
   transform: translateX(0);
-  background: cornflowerblue;
   opacity: 1;
 }
 
 .person-img {
-  width: 30%;
+  object-fit: cover;
+  width: 12vw;
+  height: 12vw;
+  min-width: 4rem;
+  min-height: 4rem;
+  border-radius: 50%;
+  border: 1px #f0711c solid;
+  -webkit-box-shadow: 0px 0px 17px 2px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 17px 2px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 17px 2px rgba(0, 0, 0, 0.75);
+}
+
+.job-title {
+  text-transform: uppercase;
+  background-color: #bccbeb;
+  color: #7f7eec;
+  font-weight: 800;
+  padding: 0.2rem;
+}
+
+.icon {
+  font-size: 3rem;
+  color: #f0711c;
+}
+
+.prev,
+.next {
+  top: 50%;
+  position: absolute;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  border-radius: 0.3rem;
+  font-size: 2rem;
+  background-color: #7472a1;
+  width: 2rem;
+  height: 2rem;
+  color: #e0e3e9;
+}
+
+.prev {
+  left: 4%;
+}
+
+.next {
+  right: 4%;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: #f0711c;
+}
+
+@media only screen and (max-width: 500px) {
+  .title {
+    font-size: 5vw;
+  }
+
+  article h4 {
+    font-size: 0.8rem;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */

@@ -1,7 +1,7 @@
 import data from "./data";
 import { useState, useEffect } from "react";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
-import { FaQuoteLeft } from "react-icons/fa";
+import { FaQuoteRight } from "react-icons/fa";
 
 const App = () => {
   const [people] = useState(data);
@@ -20,7 +20,7 @@ const App = () => {
   useEffect(() => {
     const slider = setInterval(() => {
       setIndex(index + 1);
-    }, 3000);
+    }, 5000);
     return () => {
       clearInterval(slider);
     };
@@ -30,7 +30,7 @@ const App = () => {
     <section className="container">
       <div className="title">
         <h2>
-          <span>/</span>Reviews
+          <span>/</span> Reviews
         </h2>
       </div>
       <div className="center-slider">
@@ -51,9 +51,9 @@ const App = () => {
               <article key={id} className={position}>
                 <img className="person-img" src={image} alt={name} />
                 <h4>{name}</h4>
-                <p className="title">{title}</p>
+                <p className="job-title">{title}</p>
                 <p className="text">{quote}</p>
-                <FaQuoteLeft className="icon" />
+                <FaQuoteRight className="icon" />
               </article>
             );
           }
